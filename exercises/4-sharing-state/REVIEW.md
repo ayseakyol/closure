@@ -2,33 +2,36 @@
 
 ## /4-sharing-state
 
-> uncaught error: 4/11/2020, 4:31:30 PM 
+> uncaught error: 2020-4-13 23:56:34 
 
 [../REVIEW.md](../REVIEW.md)
 
-* [/example-1-pure-functions.js](#example-1-pure-functionsjs) - example - fail
-* [/example-2-pure-closures.js](#example-2-pure-closuresjs) - example - fail
-* [/example-3-mutating-closures.js](#example-3-mutating-closuresjs) - example - fail
-* [/exercise-1.js](#exercise-1js) - uncaught error
-* [/exercise-2.js](#exercise-2js) - uncaught error
-* [/exercise-3.js](#exercise-3js) - uncaught error
+* [/example-1-pure-functions.js](#example-1-pure-functionsjs) - example - uncaught error
+* [/example-2-pure-closures.js](#example-2-pure-closuresjs) - example - uncaught error
+* [/example-3-mutating-closures.js](#example-3-mutating-closuresjs) - example - uncaught error
+* [/exercise-1.js](#exercise-1js) - pass
+* [/exercise-2.js](#exercise-2js) - pass
+* [/exercise-3.js](#exercise-3js) - pass
 
 ---
 
 ## /example-1-pure-functions.js
 
-* example - fail
+* example - uncaught error
 * [review source](./example-1-pure-functions.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+AssertionError [ERR_ASSERTION]: assert 1
+    at Console.assert (console.js:194:23)
+    at Console.console.assert ( [ ... ] /review.js:127:3)
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-1-pure-functions.js:15:9)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
 ```
 
 ```js
@@ -67,18 +70,21 @@ console.assert(concatParam(str2, " cheese!") === null, 'assert 8');
 
 ## /example-2-pure-closures.js
 
-* example - fail
+* example - uncaught error
 * [review source](./example-2-pure-closures.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+AssertionError [ERR_ASSERTION]: assert 1
+    at Console.assert (console.js:194:23)
+    at Console.console.assert ( [ ... ] /review.js:127:3)
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-2-pure-closures.js:20:9)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
 ```
 
 ```js
@@ -124,18 +130,21 @@ console.assert(concatParam2(" cheese!") === null, 'assert 8');
 
 ## /example-3-mutating-closures.js
 
-* example - fail
+* example - uncaught error
 * [review source](./example-3-mutating-closures.js)
 
 ```txt
-- FAIL : assert 1
-- FAIL : assert 2
-- FAIL : assert 3
-- FAIL : assert 4
-- FAIL : assert 5
-- FAIL : assert 6
-- FAIL : assert 7
-- FAIL : assert 8
+AssertionError [ERR_ASSERTION]: assert 1
+    at Console.assert (console.js:194:23)
+    at Console.console.assert ( [ ... ] /review.js:127:3)
+    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-3-mutating-closures.js:20:9)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
 ```
 
 ```js
@@ -181,21 +190,11 @@ console.assert(concatParam2(" cheese!") === null, 'assert 8');
 
 ## /exercise-1.js
 
-* uncaught error
+* pass
 * [review source](./exercise-1.js)
 
 ```txt
-ReferenceError: _ is not defined
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/exercise-1.js:18:25)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
-    at Module.load (internal/modules/cjs/loader.js:643:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at evaluate ( [ ... ] /review.js:229:7)
-    at Object.<anonymous> ( [ ... ] /review.js:244:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
++ PASS : assert str4
 ```
 
 ```js
@@ -216,7 +215,7 @@ const str3 = concatPigs(str2);
 
 const str4 = concatParam(str2, str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === " pigs  rock!  pigs  rock! pigs", "assert str4");
 
 ```
 
@@ -226,21 +225,11 @@ console.assert(str4 === _, 'assert str4');
 
 ## /exercise-2.js
 
-* uncaught error
+* pass
 * [review source](./exercise-2.js)
 
 ```txt
-ReferenceError: _ is not defined
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/exercise-2.js:14:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
-    at Module.load (internal/modules/cjs/loader.js:643:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at evaluate ( [ ... ] /review.js:229:7)
-    at Object.<anonymous> ( [ ... ] /review.js:244:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
++ PASS : assert str4
 ```
 
 ```js
@@ -251,13 +240,14 @@ const closeIt = (str) => {
     },
     function (param) {
       return str + param;
-    }
-  ]
-}
+    },
+  ];
+};
 
 let closedFunctions = closeIt("-");
-const concatPigs = closedFunctions[0], concatParam = closedFunctions[1];
-closedFunctions = _;
+const concatPigs = closedFunctions[0],
+  concatParam = closedFunctions[1];
+closedFunctions = "- pigs-";
 
 const str1 = concatPigs();
 
@@ -267,7 +257,7 @@ const str3 = concatPigs();
 
 const str4 = concatParam(str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === "-- pigs", "assert str4");
 
 ```
 
@@ -277,38 +267,29 @@ console.assert(str4 === _, 'assert str4');
 
 ## /exercise-3.js
 
-* uncaught error
+* pass
 * [review source](./exercise-3.js)
 
 ```txt
-ReferenceError: _ is not defined
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/exercise-3.js:14:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
-    at Module.load (internal/modules/cjs/loader.js:643:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:556:12)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at evaluate ( [ ... ] /review.js:229:7)
-    at Object.<anonymous> ( [ ... ] /review.js:244:1)
-    at Module._compile (internal/modules/cjs/loader.js:777:30)
++ PASS : assert str4
 ```
 
 ```js
 const closeIt = (str) => {
   return [
     function () {
-      return str += " pigs";
+      return (str += " pigs");
     },
     function (param) {
-      return str += param;
-    }
-  ]
-}
+      return (str += param);
+    },
+  ];
+};
 
 let closedFunctions = closeIt("-");
-const concatPigs = closedFunctions[0], concatParam = closedFunctions[1];
-closedFunctions = _;
+const concatPigs = closedFunctions[0],
+  concatParam = closedFunctions[1];
+closedFunctions = "- pigs-";
 
 const str1 = concatPigs();
 
@@ -318,7 +299,7 @@ const str3 = concatPigs();
 
 const str4 = concatParam(str3);
 
-console.assert(str4 === _, 'assert str4');
+console.assert(str4 === "- pigs rock! pigs- pigs rock! pigs", "assert str4");
 
 ```
 
