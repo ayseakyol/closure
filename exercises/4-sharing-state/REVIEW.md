@@ -2,13 +2,13 @@
 
 ## /4-sharing-state
 
-> uncaught error: 2020-4-13 23:56:34 
+> pass: 2020-4-15 00:31:02 
 
 [../REVIEW.md](../REVIEW.md)
 
-* [/example-1-pure-functions.js](#example-1-pure-functionsjs) - example - uncaught error
-* [/example-2-pure-closures.js](#example-2-pure-closuresjs) - example - uncaught error
-* [/example-3-mutating-closures.js](#example-3-mutating-closuresjs) - example - uncaught error
+* [/example-1-pure-functions.js](#example-1-pure-functionsjs) - example - pass
+* [/example-2-pure-closures.js](#example-2-pure-closuresjs) - example - pass
+* [/example-3-mutating-closures.js](#example-3-mutating-closuresjs) - example - pass
 * [/exercise-1.js](#exercise-1js) - pass
 * [/exercise-2.js](#exercise-2js) - pass
 * [/exercise-3.js](#exercise-3js) - pass
@@ -17,21 +17,18 @@
 
 ## /example-1-pure-functions.js
 
-* example - uncaught error
+* example - pass
 * [review source](./example-1-pure-functions.js)
 
 ```txt
-AssertionError [ERR_ASSERTION]: assert 1
-    at Console.assert (console.js:194:23)
-    at Console.console.assert ( [ ... ] /review.js:127:3)
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-1-pure-functions.js:15:9)
-    at Module._compile (module.js:653:30)
-    at Object.Module._extensions..js (module.js:664:10)
-    at Module.load (module.js:566:32)
-    at tryModuleLoad (module.js:506:12)
-    at Function.Module._load (module.js:498:3)
-    at Module.require (module.js:597:17)
-    at require (internal/module.js:11:18)
++ PASS : assert 1
++ PASS : assert 2
++ PASS : assert 3
++ PASS : assert 4
++ PASS : assert 5
++ PASS : assert 6
++ PASS : assert 7
++ PASS : assert 8
 ```
 
 ```js
@@ -39,28 +36,26 @@ AssertionError [ERR_ASSERTION]: assert 1
 // because the returned functions never modify the closed variable
 // calling the closed functions with the same args always returns the same result
 
-
 const concatPigs = (str) => {
   return str + " pigs";
-}
+};
 const concatParam = (str, param) => {
   return str + param;
-}
+};
 
-const str1 = '-';
+const str1 = "-";
 
-console.assert(concatPigs(str1) === null, 'assert 1');
-console.assert(concatPigs(str1) === null, 'assert 2');
-console.assert(concatParam(str1, " rock!") === null, 'assert 3');
-console.assert(concatParam(str1, " rock!") === null, 'assert 4');
-
+console.assert(concatPigs(str1) === "- pigs", "assert 1");
+console.assert(concatPigs(str1) === "- pigs", "assert 2");
+console.assert(concatParam(str1, " rock!") === "- rock!", "assert 3");
+console.assert(concatParam(str1, " rock!") === "- rock!", "assert 4");
 
 const str2 = "hoy";
 
-console.assert(concatPigs(str2) === null, 'assert 5');
-console.assert(concatPigs(str2) === null, 'assert 6');
-console.assert(concatParam(str2, " cheese!") === null, 'assert 7');
-console.assert(concatParam(str2, " cheese!") === null, 'assert 8');
+console.assert(concatPigs(str2) === "hoy pigs", "assert 5");
+console.assert(concatPigs(str2) === "hoy pigs", "assert 6");
+console.assert(concatParam(str2, " cheese!") === "hoy cheese!", "assert 7");
+console.assert(concatParam(str2, " cheese!") === "hoy cheese!", "assert 8");
 
 ```
 
@@ -70,21 +65,18 @@ console.assert(concatParam(str2, " cheese!") === null, 'assert 8');
 
 ## /example-2-pure-closures.js
 
-* example - uncaught error
+* example - pass
 * [review source](./example-2-pure-closures.js)
 
 ```txt
-AssertionError [ERR_ASSERTION]: assert 1
-    at Console.assert (console.js:194:23)
-    at Console.console.assert ( [ ... ] /review.js:127:3)
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-2-pure-closures.js:20:9)
-    at Module._compile (module.js:653:30)
-    at Object.Module._extensions..js (module.js:664:10)
-    at Module.load (module.js:566:32)
-    at tryModuleLoad (module.js:506:12)
-    at Function.Module._load (module.js:498:3)
-    at Module.require (module.js:597:17)
-    at require (internal/module.js:11:18)
++ PASS : assert 1
++ PASS : assert 2
++ PASS : assert 3
++ PASS : assert 4
++ PASS : assert 5
++ PASS : assert 6
++ PASS : assert 7
++ PASS : assert 8
 ```
 
 ```js
@@ -99,28 +91,29 @@ const closeNonMutatingFunctions = (str) => {
     },
     function (param) {
       return str + param;
-    }
-  ]
-}
+    },
+  ];
+};
 
 let closedFunctions1 = closeNonMutatingFunctions("-");
-const concatPigs1 = closedFunctions1[0], concatParam1 = closedFunctions1[1];
+const concatPigs1 = closedFunctions1[0],
+  concatParam1 = closedFunctions1[1];
 closedFunctions1 = null;
 
-console.assert(concatPigs1() === null, 'assert 1');
-console.assert(concatPigs1() === null, 'assert 2');
-console.assert(concatParam1(" rock!") === null, 'assert 3');
-console.assert(concatParam1(" rock!") === null, 'assert 4');
-
+console.assert(concatPigs1() === "- pigs", "assert 1");
+console.assert(concatPigs1() === "- pigs", "assert 2");
+console.assert(concatParam1(" rock!") === "- rock!", "assert 3");
+console.assert(concatParam1(" rock!") === "- rock!", "assert 4");
 
 let closedFunctions2 = closeNonMutatingFunctions("hoy");
-const concatPigs2 = closedFunctions2[0], concatParam2 = closedFunctions2[1];
+const concatPigs2 = closedFunctions2[0],
+  concatParam2 = closedFunctions2[1];
 closedFunctions2 = null;
 
-console.assert(concatPigs2() === null, 'assert 5');
-console.assert(concatPigs2() === null, 'assert 6');
-console.assert(concatParam2(" cheese!") === null, 'assert 7');
-console.assert(concatParam2(" cheese!") === null, 'assert 8');
+console.assert(concatPigs2() === "hoy pigs", "assert 5");
+console.assert(concatPigs2() === "hoy pigs", "assert 6");
+console.assert(concatParam2(" cheese!") === "hoy cheese!", "assert 7");
+console.assert(concatParam2(" cheese!") === "hoy cheese!", "assert 8");
 
 ```
 
@@ -130,21 +123,18 @@ console.assert(concatParam2(" cheese!") === null, 'assert 8');
 
 ## /example-3-mutating-closures.js
 
-* example - uncaught error
+* example - pass
 * [review source](./example-3-mutating-closures.js)
 
 ```txt
-AssertionError [ERR_ASSERTION]: assert 1
-    at Console.assert (console.js:194:23)
-    at Console.console.assert ( [ ... ] /review.js:127:3)
-    at Object.<anonymous> ( [ ... ] /exercises/4-sharing-state/example-3-mutating-closures.js:20:9)
-    at Module._compile (module.js:653:30)
-    at Object.Module._extensions..js (module.js:664:10)
-    at Module.load (module.js:566:32)
-    at tryModuleLoad (module.js:506:12)
-    at Function.Module._load (module.js:498:3)
-    at Module.require (module.js:597:17)
-    at require (internal/module.js:11:18)
++ PASS : assert 1
++ PASS : assert 2
++ PASS : assert 3
++ PASS : assert 4
++ PASS : assert 5
++ PASS : assert 6
++ PASS : assert 7
++ PASS : assert 8
 ```
 
 ```js
@@ -155,32 +145,42 @@ AssertionError [ERR_ASSERTION]: assert 1
 function closeMutatingFunctions(str) {
   return [
     function () {
-      return str += " pigs";
+      return (str += " pigs");
     },
     function (param) {
-      return str += param;
-    }
-  ]
+      return (str += param);
+    },
+  ];
 }
 
 let closedFunctions1 = closeMutatingFunctions("-");
-const concatPigs1 = closedFunctions1[0], concatParam1 = closedFunctions1[1];
+const concatPigs1 = closedFunctions1[0],
+  concatParam1 = closedFunctions1[1];
 closedFunctions1 = null;
 
-console.assert(concatPigs1() === null, 'assert 1');
-console.assert(concatPigs1() === null, 'assert 2');
-console.assert(concatParam1(" rock!") === null, 'assert 3');
-console.assert(concatParam1(" rock!") === null, 'assert 4');
-
+console.assert(concatPigs1() === "- pigs", "assert 1");
+console.assert(concatPigs1() === "- pigs pigs", "assert 2");
+console.assert(concatParam1(" rock!") === "- pigs pigs rock!", "assert 3");
+console.assert(
+  concatParam1(" rock!") === "- pigs pigs rock! rock!",
+  "assert 4"
+);
 
 let closedFunctions2 = closeMutatingFunctions("hoy");
-const concatPigs2 = closedFunctions2[0], concatParam2 = closedFunctions2[1];
+const concatPigs2 = closedFunctions2[0],
+  concatParam2 = closedFunctions2[1];
 closedFunctions2 = null;
 
-console.assert(concatPigs2() === null, 'assert 5');
-console.assert(concatPigs2() === null, 'assert 6');
-console.assert(concatParam2(" cheese!") === null, 'assert 7');
-console.assert(concatParam2(" cheese!") === null, 'assert 8');
+console.assert(concatPigs2() === "hoy pigs", "assert 5");
+console.assert(concatPigs2() === "hoy pigs pigs", "assert 6");
+console.assert(
+  concatParam2(" cheese!") === "hoy pigs pigs cheese!",
+  "assert 7"
+);
+console.assert(
+  concatParam2(" cheese!") === "hoy pigs pigs cheese! cheese!",
+  "assert 8"
+);
 
 ```
 

@@ -2,12 +2,12 @@
 
 ## /1-identifying-closure
 
-> uncaught error: 2020-4-13 23:56:34 
+> uncaught error: 2020-4-15 00:31:02 
 
 [../REVIEW.md](../REVIEW.md)
 
 * [/example-1-returning-functions.js](#example-1-returning-functionsjs) - example - pass
-* [/example-2-never-creates-closure.js](#example-2-never-creates-closurejs) - example - uncaught error
+* [/example-2-never-creates-closure.js](#example-2-never-creates-closurejs) - example - pass
 * [/example-3-always-creates-closure.js](#example-3-always-creates-closurejs) - example - no status
 * [/example-4-sometimes-creates-closure-a.js](#example-4-sometimes-creates-closure-ajs) - example - uncaught error
 * [/example-5-sometimes-creates-closure-b.js](#example-5-sometimes-creates-closure-bjs) - example - uncaught error
@@ -54,21 +54,14 @@ newFunction();
 
 ## /example-2-never-creates-closure.js
 
-* example - uncaught error
+* example - pass
 * [review source](./example-2-never-creates-closure.js)
 
 ```txt
-AssertionError [ERR_ASSERTION]: ... when passed 4
-    at Console.assert (console.js:194:23)
-    at Console.console.assert ( [ ... ] /review.js:127:3)
-    at Object.<anonymous> ( [ ... ] /exercises/1-identifying-closure/example-2-never-creates-closure.js:19:9)
-    at Module._compile (module.js:653:30)
-    at Object.Module._extensions..js (module.js:664:10)
-    at Module.load (module.js:566:32)
-    at tryModuleLoad (module.js:506:12)
-    at Function.Module._load (module.js:498:3)
-    at Module.require (module.js:597:17)
-    at require (internal/module.js:11:18)
++ PASS : ... when passed 4
++ PASS : ... when passed a function
++ PASS : ... when passed an array
++ PASS : ... when passed itself
 ```
 
 ```js
@@ -78,28 +71,28 @@ AssertionError [ERR_ASSERTION]: ... when passed 4
 
 const doesItClose = (func, arg) => {
   const returnVal = func(arg);
-  const returnedAFunction = typeof returnVal === 'function';
+  const returnedAFunction = typeof returnVal === "function";
   const returnedArgument = arg === returnVal;
 
   const createsAClosure = returnedAFunction && !returnedArgument;
   return createsAClosure;
-}
+};
 
 const never = (x) => {
   return x;
-}
+};
 
 const whenPassed4 = doesItClose(never, 4);
-console.assert(whenPassed4 === null, "... when passed 4");
+console.assert(whenPassed4 === false, "... when passed 4");
 
-const whenPassedAFunction = doesItClose(never, function () { });
-console.assert(whenPassedAFunction === null, "... when passed a function");
+const whenPassedAFunction = doesItClose(never, function () {});
+console.assert(whenPassedAFunction === false, "... when passed a function");
 
 const whenPassedAnArray = doesItClose(never, []);
-console.assert(whenPassedAnArray === null, "... when passed an array");
+console.assert(whenPassedAnArray === false, "... when passed an array");
 
 const whenPassedItself = doesItClose(never, never);
-console.assert(whenPassedItself === null, "... when passed itself");
+console.assert(whenPassedItself === false, "... when passed itself");
 
 ```
 
