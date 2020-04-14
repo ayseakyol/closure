@@ -2,11 +2,11 @@
 
 ## /exercises
 
-> uncaught error: 2020-4-13 23:56:34 
+> uncaught error: 2020-4-15 00:31:02 
 
 * [/1-identifying-closure](./1-identifying-closure/REVIEW.md) - no status
   * [/example-1-returning-functions.js](./1-identifying-closure/REVIEW.md#example-1-returning-functionsjs) - example - pass
-  * [/example-2-never-creates-closure.js](./1-identifying-closure/REVIEW.md#example-2-never-creates-closurejs) - example - uncaught error
+  * [/example-2-never-creates-closure.js](./1-identifying-closure/REVIEW.md#example-2-never-creates-closurejs) - example - pass
   * [/example-3-always-creates-closure.js](./1-identifying-closure/REVIEW.md#example-3-always-creates-closurejs) - example - no status
   * [/example-4-sometimes-creates-closure-a.js](./1-identifying-closure/REVIEW.md#example-4-sometimes-creates-closure-ajs) - example - uncaught error
   * [/example-5-sometimes-creates-closure-b.js](./1-identifying-closure/REVIEW.md#example-5-sometimes-creates-closure-bjs) - example - uncaught error
@@ -23,9 +23,9 @@
   * [/exercise-1.js](./3-closed-variables/REVIEW.md#exercise-1js) - pass
   * [/exercise-2.js](./3-closed-variables/REVIEW.md#exercise-2js) - pass
 * [/4-sharing-state](./4-sharing-state/REVIEW.md) - no status
-  * [/example-1-pure-functions.js](./4-sharing-state/REVIEW.md#example-1-pure-functionsjs) - example - uncaught error
-  * [/example-2-pure-closures.js](./4-sharing-state/REVIEW.md#example-2-pure-closuresjs) - example - uncaught error
-  * [/example-3-mutating-closures.js](./4-sharing-state/REVIEW.md#example-3-mutating-closuresjs) - example - uncaught error
+  * [/example-1-pure-functions.js](./4-sharing-state/REVIEW.md#example-1-pure-functionsjs) - example - pass
+  * [/example-2-pure-closures.js](./4-sharing-state/REVIEW.md#example-2-pure-closuresjs) - example - pass
+  * [/example-3-mutating-closures.js](./4-sharing-state/REVIEW.md#example-3-mutating-closuresjs) - example - pass
   * [/exercise-1.js](./4-sharing-state/REVIEW.md#exercise-1js) - pass
   * [/exercise-2.js](./4-sharing-state/REVIEW.md#exercise-2js) - pass
   * [/exercise-3.js](./4-sharing-state/REVIEW.md#exercise-3js) - pass
